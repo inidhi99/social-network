@@ -5,12 +5,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon index",
-    "seed": "node utils/seed"
+    "start": "node server",
+    "dev": "nodemon server",
+    "seed": "node utils/seed",
+    "watch": "nodemon"
   },
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "mongoose": "^6.0.13"
   },
   "devDependencies": {
