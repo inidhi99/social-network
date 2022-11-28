@@ -25,3 +25,4 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 ```
 
 ## Mock-Up
+Watch the walk-through demonstration videos 
