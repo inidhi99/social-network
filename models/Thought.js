@@ -1,4 +1,5 @@
 const { Schema, model, Types } = require('mongoose');
+const reactionSchema = require("./reactions");
 
 // thought schema
 const thoughtSchema = new Schema(
@@ -20,6 +21,7 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now(),
+      // have to add TIMESTAMP ?? 
     },
   },
   {
@@ -38,7 +40,7 @@ thoughtSchema.virtual('reactionCount')
     return this.reactions.length;
 })
 
-// create the User model using the UserSchema
+// create the thought model using the thoughtSchema
 const Thought = model('Thought', thoughtSchema);
 
 // export the Thought model
