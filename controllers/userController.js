@@ -12,7 +12,7 @@ module.exports = {
     User.findOne({ _id: req.params.userId })
       .populate("thoughts")
       .populate("friends")
-      .select("__v")
+      .select("-__v")
       .then((user) =>
         !user
           ? res.status(404).json({ message: "No user with that ID" })
@@ -59,8 +59,8 @@ module.exports = {
         !user
           ? res
               .status(404)
-              .json({ message: "Video created but no user with this id!" })
-          : res.json({ message: "Video successfully deleted!" })
+              .json({ message: "User created but no user with this id!" })
+          : res.json({ message: "User successfully deleted!" })
       )
       .catch((err) => res.status(500).json(err));
   },
