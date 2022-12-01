@@ -1,5 +1,6 @@
-const { Schema, model, Types } = require('mongoose');
-const reactionSchema = require("./reactions");
+const { Schema, model } = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
+const reactionSchema = require("./Reaction");
 
 // thought schema
 const thoughtSchema = new Schema(
@@ -21,7 +22,7 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now(),
-      // have to add TIMESTAMP ?? 
+      get: timestamp => dateFormat(timestamp)
     },
   },
   {
@@ -32,8 +33,6 @@ const thoughtSchema = new Schema(
     id: false,
   }
 );
-
-
 // get total count of friends
 thoughtSchema.virtual('reactionCount')
 .get(function() {

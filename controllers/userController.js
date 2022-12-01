@@ -28,7 +28,7 @@ module.exports = {
   },
   // UPDATE user
   updateUser(req, res) {
-    Video.findOneAndUpdate(
+    User.findOneAndUpdate(
       { _id: req.params.userId },
       { $set: req.body },
       { runValidators: true, new: true }
@@ -45,7 +45,7 @@ module.exports = {
   },
   // DELETE user
   deleteUser(req, res) {
-    Video.findOneAndRemove({ _id: req.params.userId })
+    User.findOneAndRemove({ _id: req.params.userId })
       .then((user) =>
         !user
           ? res.status(404).json({ message: "No user with this id!" })
@@ -69,7 +69,7 @@ module.exports = {
   addFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
-      { $addToSet: { friends: req.body } },
+      { $addToSet: { friends: req.params.friendId } },
       { runValidators: true, new: true }
     )
       .then((user) =>
